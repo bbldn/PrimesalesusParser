@@ -6,6 +6,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Parser\Infrastructure\Repository\Base\CarRepository;
 
+#[ORM\Table(name: "`cars`")]
 #[ORM\Index(name: 'external_id_idx', columns: ['external_id'])]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
@@ -37,7 +38,7 @@ class Car
     private ?float $price = null;
 
     /* VIN */
-    #[ORM\Column(name: "`name`", type: Types::STRING, length: 17, nullable: true)]
+    #[ORM\Column(name: "`vin`", type: Types::STRING, length: 17, nullable: true)]
     private ?string $vin = null;
 
     /* Мотор */
@@ -49,7 +50,7 @@ class Car
     private ?float $mileage = null;
 
     /* Привод */
-    #[ORM\Column(name: "`engine`", type: Types::STRING, length: 50, nullable: true)]
+    #[ORM\Column(name: "`drivetrain`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $drivetrain = null;
 
     /* Трансмиссия */
