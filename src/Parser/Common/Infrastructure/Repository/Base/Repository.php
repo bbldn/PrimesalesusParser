@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parser\PrimeSalesUs\Infrastructure\Repository\Base;
+namespace App\Parser\Common\Infrastructure\Repository\Base;
 
 use Throwable;
 use Psr\Log\LoggerInterface as Logger;

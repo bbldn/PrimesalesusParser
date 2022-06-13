@@ -2,8 +2,8 @@
 
 namespace App\Parser\PrimeSalesUs\Infrastructure\Repository;
 
-use App\Parser\PrimeSalesUs\Domain\Entity\Base\Car;
-use App\Parser\PrimeSalesUs\Infrastructure\Repository\Base\CarRepository as Base;
+use App\Parser\Common\Domain\Entity\Base\Car;
+use App\Parser\Common\Infrastructure\Repository\Base\CarRepository as Base;
 use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository\CarRepository as CarRepositoryParseCarsForSale;
 
 class CarRepository extends Base implements CarRepositoryParseCarsForSale

@@ -2,7 +2,7 @@
 
 namespace App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarSaver;
 
-use App\Parser\PrimeSalesUs\Domain\Entity\Base\Car;
+use App\Parser\Common\Domain\Entity\Base\Car;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
 use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\DTO\Car as CarDTO;
 use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository\CarRepository;

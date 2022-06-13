@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Parser\PrimeSalesUs\Infrastructure\Repository\Base;
+namespace App\Parser\Common\Infrastructure\Repository\Base;
 
 use Psr\Log\LoggerInterface as Logger;
-use App\Parser\PrimeSalesUs\Domain\Entity\Base\Car;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Parser\Common\Domain\Entity\Base\Car;
 
 /**
  * @method Car[]    findAll()
