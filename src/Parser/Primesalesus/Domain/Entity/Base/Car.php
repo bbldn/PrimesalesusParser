@@ -1,48 +1,112 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale\DTO;
+namespace App\Parser\Primesalesus\Domain\Entity\Base;
 
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+use App\Parser\Primesalesus\Infrastructure\Repository\Base\CarRepository;
+
+#[ORM\Table(name: "`cars`")]
+#[ORM\Index(name: 'external_id_idx', columns: ['external_id'])]
+#[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
 {
+    /* Идентификатор */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(name: "`id`", type: Types::INTEGER, options: ["unsigned" => true])]
+    private ?int $id = null;
+
+    /* 0 - Б/У, 1 - новый */
+    #[ORM\Column(name: "`new`", type: Types::BOOLEAN, options: ["default" => 1])]
     private ?bool $new = null;
 
+    /* 0 - продана, 1 - продает */
+    #[ORM\Column(name: "`status`", type: Types::BOOLEAN, options: ["default" => 1])]
     private ?bool $status = null;
 
+    /* Топливо */
+    #[ORM\Column(name: "`fuel`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $fuel = null;
 
+    /* Название */
+    #[ORM\Column(name: "`name`", type: Types::STRING, length: 512, nullable: true)]
     private ?string $name = null;
 
+    /* Цена */
+    #[ORM\Column(name: "`price`", type: Types::FLOAT, nullable: true, options: ["unsigned" => true])]
     private ?float $price = null;
 
+    /* VIN */
+    #[ORM\Column(name: "`vin`", type: Types::STRING, length: 17, nullable: true)]
     private ?string $vin = null;
 
+    /* Мотор */
+    #[ORM\Column(name: "`engine`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $engine = null;
 
+    /* Пробег */
+    #[ORM\Column(name: "`mileage`", type: Types::FLOAT, nullable: true, options: ["unsigned" => true])]
     private ?float $mileage = null;
 
+    /* Привод */
+    #[ORM\Column(name: "`drivetrain`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $drivetrain = null;
 
+    /* Трансмиссия */
+    #[ORM\Column(name: "`transmission`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $transmission = null;
 
-    private ?string $exteriorColor = null;
-
+    /* Цвет салона */
+    #[ORM\Column(name: "`interior_color`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $interiorColor = null;
 
+    /* Цвет машины */
+    #[ORM\Column(name: "`exterior_color`", type: Types::STRING, length: 50, nullable: true)]
+    private ?string $exteriorColor = null;
+
+    /* Внешний идентификатор */
+    #[ORM\Column(name: "`external_id`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $externalId = null;
 
     /**
+     * Атрибуты
+     *
      * @var string[]|null
      *
      * @psalm-var list<string>|null
      */
-    private ?array $imageList = null;
+    #[ORM\Column(name: "`features`", type: Types::JSON, nullable: true)]
+    private ?array $features = null;
 
     /**
+     * Картинки
+     *
      * @var string[]|null
      *
      * @psalm-var list<string>|null
      */
-    private ?array $featureList = null;
+    #[ORM\Column(name: "`pictures`", type: Types::JSON, nullable: true)]
+    private ?array $pictures = null;
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     * @return Car
+     */
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * @return bool|null
@@ -237,25 +301,6 @@ class Car
     /**
      * @return string|null
      */
-    public function getExteriorColor(): ?string
-    {
-        return $this->exteriorColor;
-    }
-
-    /**
-     * @param string|null $exteriorColor
-     * @return Car
-     */
-    public function setExteriorColor(?string $exteriorColor): self
-    {
-        $this->exteriorColor = $exteriorColor;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getInteriorColor(): ?string
     {
         return $this->interiorColor;
@@ -268,6 +313,25 @@ class Car
     public function setInteriorColor(?string $interiorColor): self
     {
         $this->interiorColor = $interiorColor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExteriorColor(): ?string
+    {
+        return $this->exteriorColor;
+    }
+
+    /**
+     * @param string|null $exteriorColor
+     * @return Car
+     */
+    public function setExteriorColor(?string $exteriorColor): self
+    {
+        $this->exteriorColor = $exteriorColor;
 
         return $this;
     }
@@ -293,46 +357,38 @@ class Car
 
     /**
      * @return string[]|null
-     *
-     * @psalm-return list<string>|null
      */
-    public function getImageList(): ?array
+    public function getFeatures(): ?array
     {
-        return $this->imageList;
+        return $this->features;
     }
 
     /**
-     * @param string[]|null $imageList
+     * @param string[]|null $features
      * @return Car
-     *
-     * @psalm-param list<string>|null $imageList
      */
-    public function setImageList(?array $imageList): self
+    public function setFeatures(?array $features): self
     {
-        $this->imageList = $imageList;
+        $this->features = $features;
 
         return $this;
     }
 
     /**
      * @return string[]|null
-     *
-     * @psalm-return list<string>|null
      */
-    public function getFeatureList(): ?array
+    public function getPictures(): ?array
     {
-        return $this->featureList;
+        return $this->pictures;
     }
 
     /**
-     * @param string[]|null $featureList
+     * @param string[]|null $pictures
      * @return Car
-     *
-     * @psalm-param list<string>|null $featureList
      */
-    public function setFeatureList(?array $featureList): self
+    public function setPictures(?array $pictures): self
     {
-        $this->featureList = $featureList;
+        $this->pictures = $pictures;
 
         return $this;
     }

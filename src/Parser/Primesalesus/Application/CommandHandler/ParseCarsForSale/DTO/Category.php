@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale\DTO;
+namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\DTO;
 
 class Category
 {

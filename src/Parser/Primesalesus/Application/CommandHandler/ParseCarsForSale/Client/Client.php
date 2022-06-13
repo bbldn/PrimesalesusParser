@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale\Client;
+namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\Client;
 
 use Campo\UserAgent;
 use Symfony\Contracts\HttpClient\HttpClientInterface as HttpClient;

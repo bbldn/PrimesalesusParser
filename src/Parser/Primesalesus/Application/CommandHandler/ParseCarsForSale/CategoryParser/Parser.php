@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale\CategoryParser;
+namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CategoryParser;
 
 use Symfony\Component\DomCrawler\Crawler;
-use App\Parser\Application\CommandHandler\ParseCarsForSale\DTO\Category as CategoryDTO;
+use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\DTO\Category as CategoryDTO;
 
 class Parser
 {

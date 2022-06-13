@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale;
+namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale;
 
-use App\Parser\Application\Command\ParseCarsForSale;
+use App\Parser\Primesalesus\Application\Command\ParseCarsForSale;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use App\Parser\Application\CommandHandler\ParseCarsForSale\Client\Client as Client;
-use App\Parser\Application\CommandHandler\ParseCarsForSale\CarSaver\Saver as CarSaver;
-use App\Parser\Application\CommandHandler\ParseCarsForSale\CarParser\Parser as CarParser;
-use App\Parser\Application\CommandHandler\ParseCarsForSale\CategoryParser\Parser as CategoryParser;
+use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\Client\Client as Client;
+use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarSaver\Saver as CarSaver;
+use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarParser\Parser as CarParser;
+use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CategoryParser\Parser as CategoryParser;
 
 class Handler
 {

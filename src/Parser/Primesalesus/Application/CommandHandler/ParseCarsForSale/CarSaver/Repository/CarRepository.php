@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Parser\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository;
+namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository;
 
-use App\Parser\Domain\Entity\Base\Car;
+use App\Parser\Primesalesus\Domain\Entity\Base\Car;
 
 interface CarRepository
 {
