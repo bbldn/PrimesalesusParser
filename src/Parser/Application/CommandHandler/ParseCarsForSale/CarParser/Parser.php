@@ -15,7 +15,7 @@ class Parser
     private function parseName(Crawler $crawler, CarDTO $carDTO): void
     {
         $pathList = [
-            "//body[1]",
+            "//html/body",
             "section[@class='details-m1 '][1]",
             "div[@class='vdp-header-bar-wrapper'][1]",
             "div[@class='vdp-header-bar'][1]",
@@ -53,7 +53,7 @@ class Parser
     private function parsePrice(Crawler $crawler, CarDTO $carDTO): void
     {
         $pathList = [
-            "//body[1]",
+            "//html/body",
             "section[@class='details-m1 ']",
             "div[@class='vdp-header-bar-wrapper']",
             "div[@class='vdp-header-bar']",
@@ -66,8 +66,8 @@ class Parser
         $crawler = $crawler->filterXPath(implode('/', $pathList));
         if ($crawler->count() > 0) {
             $pathList = [
-                "//div[@class='vdp-header-bar__price-container']",
-                "h3[@class='vdp-header-bar__price font-primary']",
+                "//div[@class='vdp-header-bar__price-container'][1]",
+                "h3[@class='vdp-header-bar__price font-primary'][1]",
             ];
 
             $crawlerPrice = $crawler->filterXPath(implode('/', $pathList));
@@ -77,13 +77,13 @@ class Parser
             }
 
             $pathList = [
-                "//div[@class='vdp-header-bar__mileage-container']",
-                "h3[@class='vdp-header-bar__mileage font-primary']",
+                "//div[@class='vdp-header-bar__mileage-container'][1]",
+                "h3[@class='vdp-header-bar__mileage font-primary'][1]",
             ];
 
             $crawlerMileage = $crawler->filterXPath(implode('/', $pathList));
             if ($crawlerMileage->count() > 0) {
-                $mileage = (float)str_replace(',', '', $crawlerPrice->text());
+                $mileage = (float)str_replace(',', '', $crawlerMileage->text());
                 $carDTO->setMileage($mileage);
             }
         }
@@ -97,7 +97,7 @@ class Parser
     private function parseImageList(Crawler $crawler, CarDTO $carDTO): void
     {
         $pathList = [
-            "//body[1]",
+            "//html/body",
             "section[@class='details-m1 '][1]",
             "section[@class='vdp-vehicle-specs'][1]",
             "div[@class='container'][1]",
@@ -131,7 +131,7 @@ class Parser
     private function parseFeatureList(Crawler $crawler, CarDTO $carDTO): void
     {
         $pathList = [
-            "//body[1]",
+            "//html/body",
             "section[@class='details-m1 '][1]",
             "section[@class='vdp-vehicle-details'][1]",
             "div[@class='container'][1]",
@@ -165,7 +165,7 @@ class Parser
     private function parseVehicleInfo(Crawler $crawler, CarDTO $carDTO): void
     {
         $pathList = [
-            "//body[1]",
+            "//html/body",
             "section[@class='details-m1 ']",
             "section[@class='vdp-vehicle-specs'][1]",
             "div[@class='container'][1]",
