@@ -28,6 +28,8 @@ class Car
 
     private ?string $interiorColor = null;
 
+    private ?string $externalId = null;
+
     /**
      * @var string[]|null
      *
@@ -266,6 +268,25 @@ class Car
     public function setInteriorColor(?string $interiorColor): self
     {
         $this->interiorColor = $interiorColor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string|null $externalId
+     * @return Car
+     */
+    public function setExternalId(?string $externalId): self
+    {
+        $this->externalId = $externalId;
 
         return $this;
     }

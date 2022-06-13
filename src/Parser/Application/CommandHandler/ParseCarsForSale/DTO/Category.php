@@ -9,16 +9,16 @@ class Category
      *
      * @psalm-var list<string>
      */
-    private array $carUrlList;
+    private array $urlList;
 
     /**
-     * @param string[] $carUrlList
+     * @param string[] $urlList
      *
-     * @psalm-param list<string> $carUrlList
+     * @psalm-param list<string> $urlList
      */
-    public function __construct(array $carUrlList)
+    public function __construct(array $urlList)
     {
-        $this->carUrlList = $carUrlList;
+        $this->urlList = $urlList;
     }
 
     /**
@@ -26,8 +26,8 @@ class Category
      *
      * @psalm-return list<string>
      */
-    public function getCarUrlList(): array
+    public function getUrlList(): array
     {
-        return $this->carUrlList;
+        return $this->urlList;
     }
 }

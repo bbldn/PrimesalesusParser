@@ -6,6 +6,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Parser\Infrastructure\Repository\Base\CarRepository;
 
+#[ORM\Index(name: 'external_id_idx', columns: ['external_id'])]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
 {
@@ -62,6 +63,10 @@ class Car
     /* Цвет машины */
     #[ORM\Column(name: "`exterior_color`", type: Types::STRING, length: 50, nullable: true)]
     private ?string $exteriorColor = null;
+
+    /* Внешний идентификатор */
+    #[ORM\Column(name: "`external_id`", type: Types::STRING, length: 50, nullable: true)]
+    private ?string $externalId = null;
 
     /**
      * Атрибуты
@@ -326,6 +331,25 @@ class Car
     public function setExteriorColor(?string $exteriorColor): self
     {
         $this->exteriorColor = $exteriorColor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string|null $externalId
+     * @return Car
+     */
+    public function setExternalId(?string $externalId): self
+    {
+        $this->externalId = $externalId;
 
         return $this;
     }
