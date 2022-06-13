@@ -32,7 +32,7 @@ class Saver
      */
     public function save(CarDTO $carDTO): ?Car
     {
-        $externalId = $carDTO->getExternalId();
+        $externalId = (string)$carDTO->getExternalId();
         if (0 === mb_strlen($externalId)) {
             return null;
         }

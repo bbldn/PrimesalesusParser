@@ -69,7 +69,9 @@ class Handler
             foreach ($urlList as $url) {
                 $html = $this->client->get($url);
                 $carDTO = $this->carParser->parse($html);
-                $this->carSaver->save($carDTO);
+                if (null !== $carDTO) {
+                    $this->carSaver->save($carDTO);
+                }
             }
 
             $this->entityManager->flush();

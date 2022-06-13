@@ -18,7 +18,7 @@ class Parser
         $urlList = [];
         $crawler = $crawler->filterXPath("//h3[@class='vehicle-snapshot__title']/a[1]");
         $crawler->each(function (Crawler $c) use(&$urlList): void {
-            $href = trim($c->attr('href'));
+            $href = trim((string)$c->attr('href'));
             if (mb_strlen($href) > 0) {
                 $urlList[] = $href;
             }

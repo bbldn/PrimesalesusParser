@@ -91,7 +91,7 @@ class Parser
         $result = [];
         $crawler = $crawler->filterXPath(implode('/', $pathList));
         $crawler->each(function (Crawler $c) use(&$result): void {
-            $src = trim($c->attr('src'));
+            $src = trim((string)$c->attr('src'));
             if (mb_strlen($src) > 0) {
                 $result[$src] = true;
             }
