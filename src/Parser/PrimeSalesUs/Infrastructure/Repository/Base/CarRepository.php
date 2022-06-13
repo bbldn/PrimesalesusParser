@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Parser\Primesalesus\Infrastructure\Repository\Base;
+namespace App\Parser\PrimeSalesUs\Infrastructure\Repository\Base;
 
 use Psr\Log\LoggerInterface as Logger;
-use App\Parser\Primesalesus\Domain\Entity\Base\Car;
+use App\Parser\PrimeSalesUs\Domain\Entity\Base\Car;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**

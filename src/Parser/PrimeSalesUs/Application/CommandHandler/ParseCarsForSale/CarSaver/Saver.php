@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarSaver;
+namespace App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarSaver;
 
-use App\Parser\Primesalesus\Domain\Entity\Base\Car;
+use App\Parser\PrimeSalesUs\Domain\Entity\Base\Car;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
-use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\DTO\Car as CarDTO;
-use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository\CarRepository;
+use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\DTO\Car as CarDTO;
+use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarSaver\Repository\CarRepository;
 
 class Saver
 {

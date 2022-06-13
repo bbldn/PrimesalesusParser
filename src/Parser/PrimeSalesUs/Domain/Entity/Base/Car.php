@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Parser\Primesalesus\Domain\Entity\Base;
+namespace App\Parser\PrimeSalesUs\Domain\Entity\Base;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Parser\Primesalesus\Infrastructure\Repository\Base\CarRepository;
+use App\Parser\PrimeSalesUs\Infrastructure\Repository\Base\CarRepository;
 
 #[ORM\Table(name: "`cars`")]
 #[ORM\Index(name: 'external_id_idx', columns: ['external_id'])]

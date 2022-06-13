@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\CarParser;
+namespace App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\CarParser;
 
 use Symfony\Component\DomCrawler\Crawler;
-use App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\DTO\Car as CarDTO;
+use App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\DTO\Car as CarDTO;
 
 class Parser
 {

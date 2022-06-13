@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parser\Primesalesus\Application\CommandHandler\ParseCarsForSale\DTO;
+namespace App\Parser\PrimeSalesUs\Application\CommandHandler\ParseCarsForSale\DTO;
 
 class Car
 {
